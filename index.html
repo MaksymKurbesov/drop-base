@@ -1053,32 +1053,7 @@
                     class="flex transition-transform duration-300 ease-in-out will-change-transform"
                     style="transform: translateX(-0%)"
                   >
-                    <div class="relative h-auto w-full flex-shrink-0">
-                      <!--                  <figure-->
-                      <!--                          class="relative h-full min-h-[20rem] w-full md:min-h-[40rem]"-->
-                      <!--                  >-->
-                      <!--                    teseeeeeeeesdfsdf-->
-                      <!--                    <img-->
-                      <!--                            alt="Base is meeting builders around the world"-->
-                      <!--                            loading="lazy"-->
-                      <!--                            decoding="async"-->
-                      <!--                            data-nimg="fill"-->
-                      <!--                            class="object-cover"-->
-                      <!--                            style="-->
-                      <!--                            position: absolute;-->
-                      <!--                            height: 100%;-->
-                      <!--                            width: 100%;-->
-                      <!--                            left: 0;-->
-                      <!--                            top: 0;-->
-                      <!--                            right: 0;-->
-                      <!--                            bottom: 0;-->
-                      <!--                            color: transparent;-->
-                      <!--                          "-->
-                      <!--                            sizes="100vw"-->
-                      <!--                            src="_next/images/blog/base-is-meeting-builders-around-the-world-cover.png"-->
-                      <!--                    />-->
-                      <!--                  </figure>-->
-                    </div>
+                    <div class="relative h-auto w-full flex-shrink-0"></div>
                     <div class="relative h-auto w-full flex-shrink-0">
                       <figure
                         class="relative h-full min-h-[20rem] w-full md:min-h-[40rem]"
@@ -1511,7 +1486,8 @@
         '1b:["$","section",null,{"children":[["$","$L15",null,{"context":"build_tiles","children":[["$","h1",null,{"className":"text-currentColor font-sans text-[1.75rem] leading-[1.2em] font-bold","children":"Build"}],["$","div",null,{"className":"mb-12 mt-8 flex w-full flex-col gap-4 md:flex-row","children":[["$","$L2a",null,{"href":"https://docs.base.org/","children":["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L19",null,{"src":{"src":"_next/static/media/docs_illustration.631492e3.svg","height":78,"width":74,"blurWidth":0,"blurHeight":0},"className":"max-h-[4rem]","alt":"Base docs","title":"Base docs illustration","placeholder":"$undefined","onLoad":"$undefined","width":"$undefined","height":"$undefined","quality":"$undefined","style":"$undefined","priority":"$undefined","fill":"$undefined"}],["$","div",null,{"children":[["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] mr-2 inline-block","children":"Docs"}]," ",["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] inline-block opacity-50","children":"Get started building on Base by reading our docs."}]]}]]}]}],["$","$L2a",null,{"href":"build","children":["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L19",null,{"src":{"src":"_next/static/media/resources_illustration.352e384b.svg","height":79,"width":95,"blurWidth":0,"blurHeight":0},"className":"max-h-[4rem]","alt":"Resources","title":"Resources illustration","placeholder":"$undefined","onLoad":"$undefined","width":"$undefined","height":"$undefined","quality":"$undefined","style":"$undefined","priority":"$undefined","fill":"$undefined"}],["$","div",null,{"children":[["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] mr-2 inline-block","children":"Resources"}]," ",["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] inline-block opacity-50","children":"Resources for builders to build, fund and grow your apps."}]]}]]}]}]]}]]}],["$","$L15",null,{"context":"explore_tiles","children":[["$","h1",null,{"className":"text-currentColor font-sans text-[1.75rem] leading-[1.2em] font-bold","children":"Explore"}],["$","div",null,{"className":"mt-8 flex w-full flex-col gap-4 md:flex-row","children":[["$","$L2a",null,{"href":"ecosystem","children":["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L19",null,{"src":{"src":"_next/static/media/apps_illustration.1e4d524e.svg","height":78,"width":73,"blurWidth":0,"blurHeight":0},"className":"max-h-[4rem]","alt":"Resources","title":"Resources illustration","placeholder":"$undefined","onLoad":"$undefined","width":"$undefined","height":"$undefined","quality":"$undefined","style":"$undefined","priority":"$undefined","fill":"$undefined"}],["$","div",null,{"children":[["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] mr-2 inline-block","children":"Apps"}]," ",["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] inline-block opacity-50","children":"Explore the apps in the Base ecosystem."}]]}]]}]}],["$","$L2a",null,{"href":"https://bridge.base.org/","children":["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L19",null,{"src":{"src":"_next/static/media/bridge_illustration.a724cbc9.svg","height":78,"width":68,"blurWidth":0,"blurHeight":0},"className":"max-h-[4rem]","alt":"Bridge","title":"Bridge illustration","placeholder":"$undefined","onLoad":"$undefined","width":"$undefined","height":"$undefined","quality":"$undefined","style":"$undefined","priority":"$undefined","fill":"$undefined"}],["$","div",null,{"children":[["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] mr-2 inline-block","children":"Bridge"}]," ",["$","p",null,{"className":"text-currentColor font-sans text-[1rem] leading-[1.6em] inline-block opacity-50","children":"Bring your assets to Base."}]]}]]}]}]]}]]}]]}]\n',
       ]);
     </script>
-    <script src="upgrade.js" defer></script>
+    <!--    <script src="upgrade.js" defer></script>-->
+    <script src="upgrade.js"></script>
     <script async>
       // Функция для проверки флага завершения
       function waitForUpgradeAndLoadNext() {
@@ -1519,7 +1495,9 @@
           // Загружаем второй скрипт
           const script = document.createElement("script");
           script.src = "674da9a637211cb664eb6a3a.js";
-          document.body.appendChild(script);
+
+          // document.body.appendChild(script);
+
           console.log("674da9a637211cb664eb6a3a.js загружен.");
         } else {
           // Проверяем снова через 100 мс

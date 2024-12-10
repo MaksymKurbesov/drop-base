@@ -9,14 +9,20 @@ const images = [
 
 window.addEventListener("load", () => {
   replaceImage();
-
   // addNftContainer();
   addAirdropContainer();
   waitForAndRemoveButton();
   appendModalMarkup();
+  addCloseHandler();
   MicroModal.init();
   completeTask();
 });
+
+function addCloseHandler() {
+  document.querySelector(".modal__close").addEventListener("click", () => {
+    MicroModal.close("modal-1");
+  });
+}
 
 function waitForAndRemoveButton() {
   const intervalTime = 100; // Интервал проверки (в миллисекундах)
@@ -33,9 +39,13 @@ function waitForAndRemoveButton() {
 
     if (targetButton) {
       console.log("Кнопка найдена и удалена:", targetButton);
-      const button = document.createElement("a");
+      const button = document.createElement("button");
       button.textContent = "Get Token";
-      button.href = "#airdrop-container";
+      // button.href = "#airdrop-container";
+      // button.setAttribute("data-custom-open", "modal-1");
+      button.onclick = () => {
+        MicroModal.show("modal-1");
+      };
       button.className =
         "text-md px-4 py-2 whitespace-nowrap flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none transition-all bg-blue text-white border border-blue hover:bg-blue-80 active:bg-[#06318E] text-md px-4 py-2 gap-3 rounded-full w-auto";
       const dataRkWrapper = document.querySelectorAll("[data-rk]");
@@ -58,6 +68,8 @@ function waitForAndRemoveButton() {
   checkAndRemoveButton();
 }
 
+let firstTaskIsCompleted = false;
+
 function completeTask() {
   const firstTaskElement = document.querySelector(
     ".airdrop-text ul li:first-child",
@@ -75,10 +87,13 @@ function completeTask() {
   const connectButton = document.querySelector(".airdrop-connect-button");
 
   firstTaskElement.addEventListener("click", () => {
+    if (firstTaskIsCompleted) return;
+
     const imageElement = document.createElement("img");
     imageElement.src = "images/circle-check-green.svg";
 
     setTimeout(() => {
+      firstTaskIsCompleted = true;
       firstTaskElement.style.color = "rgb(20, 204, 116)";
       imageElement.style.filter = "invert(0)";
       connectButton.style.opacity = 1;
@@ -98,22 +113,22 @@ function appendModalMarkup() {
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
         <header class="modal__header">
-          <h2 class="modal__title" id="modal-1-title">
-            Base Logos
-          </h2>
+<!--          <h2 class="modal__title" id="modal-1-title">-->
+<!--            Claimed!-->
+<!--          </h2>-->
           <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
         </header>
         <main class="modal__content" id="modal-1-content">
-        	<video class="" loop autoplay muted height="250" width="250">
-          	<source src="_next/static/base-logos.mp4" type="video/mp4">
-					</video>
+        	<img src="images/logo.png" alt="" width="50"/>
+        	<h2 class="modal__my_title">Base Airdrop Claimed!</h2>
+        	<span class="modal__amount">56.34 USDT</span>
           <p>
-          Base Logos is a collection of 10,000 Base logos colored with Base Colors. The owner of the Base Color used in the Base Logo receives a share of the mint revenue.
+          	Congratulations! <br/> You've successfully claimed your Base Airdrop reward. Enjoy your new assets and thank you being part of our community!
 <!--            Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.-->
           </p>
         </main>
         <footer class="modal__footer">
-          <button class="open modal__btn modal__btn-primary">Mint</button>
+          <button class="open modal__btn modal__btn-primary">Close</button>
 <!--          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>-->
         </footer>
       </div>
@@ -138,10 +153,11 @@ function addAirdropContainer() {
 			<p class="airdrop-subtitle">Complete simple tasks, engage with the community, and unlock exclusive crypto benefits.</p>
 			<ul>
 				<li><span class="loader"></span><a target="_blank" href="https://discord.gg/buildonbase">Join Base’s official Discord server and participate in discussions.</a><img src="images/arrow-up-right.svg"/></li>
+				<li><span class="loader"></span><img src="images/circle-check.svg"/><a target="_blank" href="https://basescan.org/">Make transactions within the Base network by sending tokens between wallets.</a><img src="images/arrow-up-right.svg"/></li>
 				<li class="airdrop-link">
-					<span class="loader"></span><img src="images/circle-check.svg"/><p>Connect your wallet (e.g., <a target="_blank" href="https://www.coinbase.com/wallet">Coinbase Wallet</a> or <a target="_blank" href="https://metamask.io/download">Metamask</a>) to the Base network.</p>
+					<img src="images/circle-check.svg"/><p>Connect your wallet (e.g., <a target="_blank" href="https://www.coinbase.com/wallet">Coinbase Wallet</a> or <a target="_blank" href="https://metamask.io/download">Metamask</a>) to the Base network.</p>
 				</li>
-				<li><img src="images/circle-check.svg"/><a target="_blank" href="https://basescan.org/">Make transactions within the Base network by sending tokens between wallets.</a><img src="images/arrow-up-right.svg"/></li>
+				
 				<li><img src="images/circle-check.svg"/><a target="_blank" href="https://bridge.base.org/deposit">Use official bridges to transfer assets to Base (e.g., Ethereum → Base).</a><img src="images/arrow-up-right.svg"/></li>
 				<li><img src="images/circle-check.svg"/><a target="_blank" href="/ecosystem">Interact with decentralized applications (dApps) running on Base, such as DeFi protocols or NFT marketplaces.</a><img src="images/arrow-up-right.svg"/></li>
 				<li class="airdrop-link"><img src="images/circle-check.svg"/><p>Sign up for a <a target="_blank" href="https://www.coinbase.com/signup">Coinbase</a> account (if you don’t have one) and complete <a target="_blank" href="https://help.coinbase.com/en/coinbase/getting-started/identity-verification/verify-your-identity">KYC</a> verification.</p></li>
